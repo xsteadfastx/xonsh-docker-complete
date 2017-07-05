@@ -1,4 +1,4 @@
-from docker import Client
+from docker import client
 
 from docker_tabcomplete import parser
 
@@ -26,7 +26,7 @@ def docker_images(docker_url, query):
     :returns: all matching images
     :rtype: set
     """
-    cli = Client(base_url=docker_url)
+    cli = client(base_url=docker_url)
     results = set()
     images = cli.images()
 
@@ -58,7 +58,7 @@ def docker_containers(docker_url, query, all=True):
     :returns: all matching containers
     :rtype: set
     """
-    cli = Client(base_url=docker_url)
+    cli = client(base_url=docker_url)
     results = set()
     containers = cli.containers(all=all)
 
@@ -88,7 +88,7 @@ def dockerhub_images(docker_url, query):
     :returns: Matched images
     :rtype: set
     """
-    cli = Client(base_url=docker_url)
+    cli = client(base_url=docker_url)
     results = set()
     images = cli.search(query)
 
